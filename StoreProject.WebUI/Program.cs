@@ -3,12 +3,15 @@ using BusinessLayer.Concrete;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<StoreContext>();
 
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<StoreContext>();
 
 var app = builder.Build();
 

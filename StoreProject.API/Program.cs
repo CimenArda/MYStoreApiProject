@@ -4,6 +4,7 @@ using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using BusinessLayer.Container;
+using EntityLayer.Concrete;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,6 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<StoreContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<StoreContext>();
 
 builder.Services.ContainerDependencies();
 
