@@ -23,7 +23,7 @@ namespace EntityLayer.Concrete
         public string ImageUrl3 { get; set; }
 
         public int CategoryID { get; set; }
-
+        public Category Category { get; set; }
 
 
     }

@@ -1,0 +1,57 @@
+﻿@using DtoLayer.FeatureDtos
+@model List<ResultFeatureDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Öne Çıkanlar Tablosu</h4>
+            <p class="card-description">
+                Ana Paneldeki Öne Çıkanlar(Slider) Tablosu Yönetim Alanıdır.Veri Tutarlılığını Sağlamak Adına 3 Sütun Üzerinden İşlemleri Yapmanız Önerilmektedir.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                              Başlık
+                            </th>
+                            <th>
+                               Açıklama
+                            </th>
+                            <th>
+                                Resim Yolu 
+                            </th>
+                            
+                            <th>
+                            </th>
+                            <th>
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+
+
+                            <tr>
+                                <td>@item.Title</td>
+                                <td>@item.Description</td>
+                                <td>@item.ImageUrl</td>
+                                <td><a class="btn btn-danger" href="/AdminFeatures/DeleteFeature/@item.FeatureID">Sil</a></td>
+                                <td><a class="btn btn-success" href="/AdminFeatures/UpdateFeature/@item.FeatureID">Güncelle</a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <br />
+                <a class="btn btn-primary" href="/AdminFeatures/CreateFeature/">Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+﻿@using DtoLayer.CategoryDtos
+@model UpdateCategoryDto
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kategoriler</h4>
+            <p class="card-description">
+                Kategori İçin Bilgileri Güncelleme Sayfası
+            </p>
+            <form method="post" class="forms-sample">
+
+                <input type="hidden" asp-for="CategoryID" />
+                <div class="form-group">
+                    <label for="exampleInputName1">Kategori Adı </label>
+                    <input asp-for="CategoryName" type="text" class="form-control" id="exampleInputName1">
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+                <a href="/AdminCategory/Index" class="btn btn-light">İptal Et</a>
+            </form>
+        </div>
+    </div>
+</div>
+

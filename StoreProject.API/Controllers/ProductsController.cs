@@ -81,8 +81,26 @@ namespace StoreProject.API.Controllers
 
 
 
+        [HttpGet("GetProductsWithCategory")]
+        public List<ResultProductWithCategoryDto> GetProductsWithCategory()
+        {
+            var value = _productService.TGetProductsWithCategory();
+            return value.Select(p=> new ResultProductWithCategoryDto
+            {
+                ProductID = p.ProductID,
+                Name = p.Name,
+                CategoryName = p.Category.CategoryName,
+                CategoryID = p.CategoryID,
+                Description = p.Description,
+                ImageUrl1 = p.ImageUrl1,
+                ImageUrl2 = p.ImageUrl2,
+                ImageUrl3 = p.ImageUrl3,
+                Price = p.Price,
+                Title = p.Title
+            }).ToList();
 
-
+           
+        }
 
 
     }

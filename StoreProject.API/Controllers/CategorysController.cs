@@ -30,7 +30,7 @@ namespace StoreProject.API.Controllers
         {
             _CategoryService.TInsert(new Category()
             {
-                Name = createCategoryDto.Name,
+                CategoryName = createCategoryDto.CategoryName,
                
             });
             return Ok("Category eklendi");
@@ -59,7 +59,7 @@ namespace StoreProject.API.Controllers
             _CategoryService.TUpdate(new Category()
             {
                 CategoryID = updateCategoryDto.CategoryID,
-                Name = updateCategoryDto.Name
+                CategoryName = updateCategoryDto.CategoryName
                
             });
             return Ok("Category  güncellendi");
