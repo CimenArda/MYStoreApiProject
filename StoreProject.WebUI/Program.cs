@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<StoreContext>();
 
+builder.Services.AddHttpClient();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<StoreContext>();
 
 var app = builder.Build();

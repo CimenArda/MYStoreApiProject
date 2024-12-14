@@ -1,0 +1,38 @@
+﻿@using DtoLayer.AboutDtos
+@model CreateAboutDto
+@{
+    ViewData["Title"] = "CreateAbout";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Hakkımızda</h4>
+            <p class="card-description">
+                Hakkımızda Sayfası İçin Bilgileri Ekleme Sayfası
+            </p>
+            <form method="post" class="forms-sample">
+                <div class="form-group">
+                    <label for="exampleTextarea1">Bizim Hikayemiz</label>
+                    <textarea asp-for="OurStory" class="form-control" id="exampleTextarea1" rows="8"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea1">Misyonumuz</label>
+                    <textarea asp-for="OurMission" class="form-control" id="exampleTextarea1" rows="8"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Resim Yolu 1</label>
+                    <input asp-for="ImageUrl1" type="text" class="form-control" id="exampleInputName1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Resim Yolu 2 </label>
+                    <input asp-for="ImageUrl2" type="text" class="form-control" id="exampleInputName1">
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Ekle</button>
+                <a href="/AdminAbout/Index" class="btn btn-light">İptal Et</a>
+            </form>
+        </div>
+    </div>
+</div>
+

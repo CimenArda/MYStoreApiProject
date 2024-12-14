@@ -1,0 +1,68 @@
+﻿@using DtoLayer.AboutDtos
+@model List<ResultAboutDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Hakkımızda Tablosu</h4>
+            <p class="card-description">
+                Ana Paneldeki Hakkımızda Tablosu Yönetim Alanıdır.Veri Tutarlılığını Sağlamak Adına 1 Sütun Üzerinden İşlemleri Yapmanız Önerilmektedir.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Bizim Hikayemiz
+                            </th>
+                            <th>
+                                Misyonumuz
+                            </th>
+                            <th>
+                                Resim Yolu 1
+                            </th>
+                            <th>
+                                Resim Yolu 2
+                            </th>
+                            <th>
+                            </th>
+                            <th>
+                            </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+
+
+                            <tr>
+                                <td>
+                                    @(item.OurStory.Length > 40
+                                        ? item.OurStory.Substring(0, 40) + "..."
+                                        : item.OurStory)
+                                </td>
+                                <td>
+                                    @(item.OurMission.Length > 40
+                                        ? item.OurMission.Substring(0, 40) + "..."
+                                        : item.OurMission)
+                                </td>
+                                <td>@item.ImageUrl1</td>
+                                <td>@item.ImageUrl2</td>
+                                <td><a class="btn btn-danger" href="/AdminAbout/DeleteAbout/@item.AboutID">Sil</a></td>
+                                <td><a class="btn btn-success" href="/AdminAbout/UpdateAbout/@item.AboutID">Güncelle</a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <br />
+                <a class="btn btn-primary" href="/AdminAbout/CreateAbout/">Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
