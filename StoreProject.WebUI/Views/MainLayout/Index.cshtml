@@ -1,0 +1,28 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+@await Component.InvokeAsync("_MainLayoutHeadComponentPartial")
+<body class="animsition">
+
+    <!-- Header -->
+    @await Component.InvokeAsync("_MainLayoutNavbarComponentPartial")
+    <section class="bg0 p-t-75 p-b-120">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </section>
+    <!-- Footer -->
+    @await Component.InvokeAsync("_MainLayoutFooterComponentPartial")
+    <!-- Back to top -->
+    <div class="btn-back-to-top" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="zmdi zmdi-chevron-up"></i>
+        </span>
+    </div>
+
+    @await Component.InvokeAsync("_MainLayoutScriptComponentPartial")
+</body>
+</html>
