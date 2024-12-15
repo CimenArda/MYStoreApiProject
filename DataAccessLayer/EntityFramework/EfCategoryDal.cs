@@ -15,5 +15,14 @@ namespace DataAccessLayer.EntityFramework
         public EfCategoryDal(StoreContext context) : base(context)
         {
         }
+
+        public int CategoryCount()
+        {
+            using (var storecontext = new StoreContext())
+            {
+                var value = storecontext.Categories.Count();
+                return value;
+            }
+        }
     }
 }

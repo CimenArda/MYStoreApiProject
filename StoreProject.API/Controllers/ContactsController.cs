@@ -65,5 +65,11 @@ namespace StoreProject.API.Controllers
             });
             return Ok("Contact  güncellendi");
         }
+
+        [HttpGet("ContactCount")]
+        public IActionResult ContactCount()
+        {
+         return Ok(_ContactService.TContactCount());
+        }
     }
 }

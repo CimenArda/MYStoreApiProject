@@ -18,6 +18,11 @@ namespace BusinessLayer.Concrete
             _ContactDal = ContactDal;
         }
 
+        public int TContactCount()
+        {
+         return   _ContactDal.ContactCount();
+        }
+
         public void TDelete(int id)
         {
             _ContactDal.Delete(id);

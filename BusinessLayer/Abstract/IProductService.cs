@@ -10,6 +10,10 @@ namespace BusinessLayer.Abstract
     public interface IProductService :IGenericService<Product>
     {
         List<Product> TGetProductsWithCategory();
+        int TProductCount();
+
+        string TMaxPriceProductName();
+
 
     }
 }

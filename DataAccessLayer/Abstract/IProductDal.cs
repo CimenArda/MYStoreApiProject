@@ -10,5 +10,8 @@ namespace DataAccessLayer.Abstract
     public interface IProductDal : IGenericDal<Product>
     {
         List<Product> GetProductsWithCategory();
+        int ProductCount();
+
+        string MaxPriceProductName();
     }
 }

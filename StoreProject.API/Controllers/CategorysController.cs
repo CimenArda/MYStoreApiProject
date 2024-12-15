@@ -65,6 +65,10 @@ namespace StoreProject.API.Controllers
             return Ok("Category  güncellendi");
         }
 
-
+        [HttpGet("CategoryCount")]
+        public IActionResult CategoryCount()
+        {
+            return Ok(_CategoryService.TCategoryCount());
+        }
     }
 }

@@ -12,8 +12,18 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfContactDal : GenericRepository<Contact>, IContactDal
     {
+
         public EfContactDal(StoreContext context) : base(context)
         {
+        }
+
+        public int ContactCount()
+        {
+            using(var storecontext = new StoreContext())
+            {
+                var value = storecontext.Contacts.Count();
+                return value;
+            }
         }
     }
 }

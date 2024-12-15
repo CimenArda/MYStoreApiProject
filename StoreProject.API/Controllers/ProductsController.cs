@@ -102,6 +102,19 @@ namespace StoreProject.API.Controllers
            
         }
 
+        [HttpGet("ProductCount")]
+        public IActionResult ProductCount()
+        {
+            return Ok(_productService.TProductCount());
+        }
+
+
+        [HttpGet("MaxPriceProductName")]
+        public IActionResult MaxPriceProductName()
+        {
+            return Ok(_productService.TMaxPriceProductName());
+        }
+
 
     }
 }

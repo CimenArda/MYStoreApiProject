@@ -18,6 +18,11 @@ namespace BusinessLayer.Concrete
             _categoryDal = categoryDal;
         }
 
+        public int TCategoryCount()
+        {
+            return _categoryDal.CategoryCount();
+        }
+
         public void TDelete(int id)
         {
             _categoryDal.Delete(id);

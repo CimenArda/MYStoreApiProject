@@ -43,6 +43,16 @@ namespace BusinessLayer.Concrete
             _ProductDal.Insert(entity);
         }
 
+        public string TMaxPriceProductName()
+        {
+           return _ProductDal.MaxPriceProductName();
+        }
+
+        public int TProductCount()
+        {
+          return  _ProductDal.ProductCount();
+        }
+
         public void TUpdate(Product entity)
         {
             _ProductDal.Update(entity);

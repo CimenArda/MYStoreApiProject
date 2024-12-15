@@ -24,5 +24,27 @@ namespace DataAccessLayer.EntityFramework
             var values = StoreContext.Products.Include(x => x.Category).ToList();
             return values;
         }
+
+        public string MaxPriceProductName()
+        {
+            using (var storecontext = new StoreContext())
+            {
+                            var productName = storecontext.Products
+                                                                 .OrderByDescending(p => p.Price)
+                                                                 .Select(p => p.Name)
+                                                                 .FirstOrDefault();
+
+                return productName;
+            }
+        }
+
+        public int ProductCount()
+        {
+            using (var storecontext = new StoreContext())
+            {
+                var value = storecontext.Products.Count();
+                return value;
+            }
+        }
     }
 }
