@@ -115,6 +115,6 @@ namespace StoreProject.API.Controllers
             return Ok(_productService.TMaxPriceProductName());
         }
 
-
-    }
+	
+	}
 }

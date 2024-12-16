@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+@await Component.InvokeAsync("_MainPageHeadComponentPartial")
+
+<body class="animsition">
+
+	<!-- Header -->
+	
+	@await Component.InvokeAsync("_MainPageNavbarComponentPartial")
+
+	<!-- Slider -->
+	
+	@await Component.InvokeAsync("_MainPageSliderComponentPartial")
+
+	<!-- Banner -->
+	
+	@await Component.InvokeAsync("_MainPageBannerComponentPartial")
+
+
+	<!-- Product -->
+	
+
+	@await Component.InvokeAsync("_MainPageProductComponentPartial")
+
+	<!-- Footer -->
+	
+	@await Component.InvokeAsync("_MainLayoutFooterComponentPartial")
+
+	
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+	<!-- Modal1 -->
+	
+	@await Component.InvokeAsync("_MainPageScriptComponentPartial")
+
+</body>
+</html>
