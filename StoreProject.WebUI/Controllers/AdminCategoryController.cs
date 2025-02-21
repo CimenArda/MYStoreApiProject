@@ -8,16 +8,17 @@ namespace StoreProject.WebUI.Controllers
     public class AdminCategoryController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
-
-        public AdminCategoryController(IHttpClientFactory httpClientFactory)
+        private readonly string _baseUrl;
+        public AdminCategoryController(IHttpClientFactory httpClientFactory,IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
+            _baseUrl = configuration["ApiSettings:BaseUrl"] + "Categorys"; 
         }
 
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7110/api/Categorys");
+            var responseMessage = await client.GetAsync(_baseUrl);
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -45,7 +46,7 @@ namespace StoreProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createCategoryDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7110/api/Categorys", stringContent);
+            var responseMessage = await client.PostAsync(_baseUrl, stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index", "AdminCategory");
@@ -57,7 +58,7 @@ namespace StoreProject.WebUI.Controllers
         public async Task<IActionResult> DeleteCategory(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync("https://localhost:7110/api/Categorys?id=" + id);
+            var responseMessage = await client.DeleteAsync($"{_baseUrl}?id={id}" );
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index", "AdminCategory");
@@ -73,7 +74,7 @@ namespace StoreProject.WebUI.Controllers
         public async Task<IActionResult> UpdateCategory(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var resposenMessage = await client.GetAsync($"https://localhost:7110/api/Categorys/{id}");
+            var resposenMessage = await client.GetAsync($"{_baseUrl}/{id}");
             if (resposenMessage.IsSuccessStatusCode)
             {
                 var jsonData = await resposenMessage.Content.ReadAsStringAsync();
@@ -89,7 +90,7 @@ namespace StoreProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(updateCategoryDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("https://localhost:7110/api/Categorys/", stringContent);
+            var responseMessage = await client.PutAsync(_baseUrl, stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index", "AdminCategory");
